@@ -1,29 +1,22 @@
-[project]
+[tool.poetry]
 name = "rag-project"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Gaurang",email = "gaurangtech9@gmail.com"}
-]
-readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    "fastapi (>=0.121.2,<0.122.0)",
-    "uvicorn (>=0.38.0,<0.39.0)",
-    "pytest (>=9.0.1,<10.0.0)",
-    "python-dotenv (>=1.2.1,<2.0.0)",
-    "pydantic (>=2.12.4,<3.0.0)"
-]
+description = "RAG project scaffold"
+authors = ["Gaurang <gaurangtech9@gmail.com>"]
 
+[tool.poetry.dependencies]
+python = ">=3.10"
+fastapi = ">=0.121.2,<0.122.0"
+uvicorn = ">=0.18.0,<1.0.0"
+python-dotenv = ">=1.2.1,<2.0.0"
+pydantic = ">=2.0.0,<3.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=7.0.0,<10.0.0"
+black = ">=24.0.0,<26.0.0"
+isort = ">=5.0.0,<9.0.0"
+pre-commit = ">=4.0.0,<6.0.0"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[dependency-groups]
-dev = [
-    "black (>=25.11.0,<26.0.0)",
-    "isort (>=7.0.0,<8.0.0)",
-    "flake9 (>=3.8.3.post2,<4.0.0)",
-    "pre-commit (>=4.4.0,<5.0.0)"
-]
