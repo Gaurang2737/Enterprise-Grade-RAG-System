@@ -7,16 +7,14 @@ WORKDIR /app
 # Copy only dependency files first (for caching)
 COPY pyproject.toml poetry.lock /app/
 
-# Install Poetry inside container and project dependencies
+# Install Poetry and project dependencies (without installing our app)
 RUN pip install --no-cache-dir poetry && \
     poetry config virtualenvs.create false && \
-    poetry install
+    poetry install --no-root
 
-# Copy entire project
+# Copy whole project AFTER dependencies
 COPY . /app
 
-# Expose the API port
 EXPOSE 8000
 
-# Run FastAPI app
 CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
